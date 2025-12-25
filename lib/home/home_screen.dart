@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
       create: (_) => HomeCubit(HomeRepository())..fetchHomeData(),
       child: Scaffold(
         appBar: AppBar(title: const Text("Home")),
-        body: BlocBuilder<HomeBloc, HomeState>(
+        body: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             if (state.isLoading) {
               return const Center(child: CircularProgressIndicator());
