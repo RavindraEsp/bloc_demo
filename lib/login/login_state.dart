@@ -54,6 +54,7 @@ class LoginState extends Equatable {
   final String email;
   final bool isChecked;
   final String? errorMessage;
+  final bool isLoginSuccess; // Add this flag
 
   const LoginState({
     this.isPageLoading = true,
@@ -62,6 +63,7 @@ class LoginState extends Equatable {
     this.email = '',
     this.isChecked = false,
     this.errorMessage,
+    this.isLoginSuccess = false, // Initialize as false
   });
 
   LoginState copyWith({
@@ -71,6 +73,7 @@ class LoginState extends Equatable {
     String? email,
     bool? isChecked,
     String? errorMessage,
+    bool? isLoginSuccess,
   }) {
     return LoginState(
       isPageLoading: isPageLoading ?? this.isPageLoading,
@@ -79,6 +82,7 @@ class LoginState extends Equatable {
       email: email ?? this.email,
       isChecked: isChecked ?? this.isChecked,
       errorMessage: errorMessage,
+      isLoginSuccess: isLoginSuccess ?? this.isLoginSuccess,
     );
   }
 
@@ -90,6 +94,7 @@ class LoginState extends Equatable {
     email,
     isChecked,
     errorMessage,
+    isLoginSuccess,
   ];
 }
 

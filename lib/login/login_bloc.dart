@@ -48,6 +48,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginPressed event,
     Emitter<LoginState> emit,
   ) async {
+    //    emit(state.copyWith(errorMessage: null, isLoginSuccess: false));
     if (state.email.isEmpty) {
       emit(state.copyWith(errorMessage: "Email cannot be empty"));
       return;
@@ -65,6 +66,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     print("📧 Email: ${state.email}");
     print("☑️ Checkbox: ${state.isChecked}");
 
-    emit(state.copyWith(isButtonLoading: false));
+    // Set success flag and stop loading
+    emit(state.copyWith(
+      isButtonLoading: false,
+      isLoginSuccess: true, // Set success flag
+    ));
   }
 }

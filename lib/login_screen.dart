@@ -26,10 +26,15 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(title: const Text("Login")),
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
-          if (!state.isButtonLoading &&
-              state.errorMessage == null &&
-              state.email.isNotEmpty &&
-              state.isChecked) {
+
+          print("1 ${!state.isButtonLoading}");
+          print("2 ${state.errorMessage == null}");
+          print("3 ${state.email.isNotEmpty}");
+          print("4 ${state.isChecked}");
+
+
+
+          if (state.isLoginSuccess) {
             print("Navigate");
             Navigator.push(
               context,
