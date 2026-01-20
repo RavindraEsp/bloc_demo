@@ -23,7 +23,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       try {
         final data = await repository.fetchHomeData();
-        emit(state.copyWith(isLoading: false, items: data));
+
+        emit(state.copyWith(isLoading: false, items: data));// NOT modifying existing state ❌
+
+       // Creating a new HomeState instance ✅
+
+      //  Preserving old values where needed
+        //  it means new state return kr rahe h agar copy with use nahi karenge to old value nahi milega
+
+
+        /// Every time we return new object with new value becuase ham old object me modify nahi kr rahe h kyoki finbal value change nahi hoti h
+        ///
 
         print("Step 3");
       } catch (e) {
